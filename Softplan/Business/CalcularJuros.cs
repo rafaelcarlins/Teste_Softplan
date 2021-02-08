@@ -11,18 +11,15 @@ namespace Softplan.Business
         public decimal CalculaJuros(decimal ValorInicial, decimal juros, int Tempo)
         {
             
-
             var Valor = ValorInicial * (1 + juros) ;
             
-            var Val = Math.Pow(decimal.ToDouble(Valor), 5);
+            var Val = Math.Pow(decimal.ToDouble(Valor), Tempo);
 
-            decimal ValorFinal = Convert.ToDecimal(Math.Truncate(Val) / 100000000);//Após pesquisas informarem que para utilizar o método POW é necessário ser realizada a divisão
+            decimal ValorFinal = Convert.ToDecimal(Math.Truncate(Val) / 100000000);//Após pesquisas informarem que para utilizar o método POW é necessário ser realizada a divisão por esse valor
             ValorFinal = (decimal.Round(ValorFinal, 2));
 
             return ValorFinal;
-
-                   
+         
         }
-        
     }
 }

@@ -13,14 +13,12 @@ namespace Softplan.Controllers
     public class TaxaJurosController : ControllerBase
     {
 
-
         private readonly ITaxaJuros _taxaJuros;
 
         public TaxaJurosController(ITaxaJuros taxaJuros)
         {
             _taxaJuros = taxaJuros;
         }
-
 
         [Route("taxajuros")]
         [HttpGet]
@@ -30,9 +28,6 @@ namespace Softplan.Controllers
             decimal result = await _taxaJuros.RetornoTaxaJuros();
             return Ok(result);
         }
-
-        
-        
 
     }
 }
