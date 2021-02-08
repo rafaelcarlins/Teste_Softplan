@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Softplan.Business;
+using Softplan.Interfaces;
 
 namespace Softplan
 {
@@ -35,6 +37,9 @@ namespace Softplan
                     Description="Teste Softplan usando Swagger"
                 });
             });
+
+            services.AddScoped<ITaxaJuros, TaxaJuros>();
+            services.AddScoped<ICalcularJuros, CalcularJuros>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
