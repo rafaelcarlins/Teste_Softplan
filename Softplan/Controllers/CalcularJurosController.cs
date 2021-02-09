@@ -27,7 +27,8 @@ namespace Softplan.Controllers
         [HttpGet]
         public async Task<IActionResult> CalculaJuros(decimal ValorInicial, int Tempo)
         {
-            var taxaJuros = await _taxaJuros.RetornoTaxaJuros();
+
+            decimal taxaJuros = await _taxaJuros.RetornoTaxaJuros();
             decimal result = (decimal.Round(_calcularJuros.CalculaJuros(ValorInicial, taxaJuros, Tempo),2));
             string ret = Convert.ToString(result);
             return Ok(ret);
@@ -36,7 +37,7 @@ namespace Softplan.Controllers
         [Route("showmethecode")]
         [HttpGet]
 
-        public async Task<IActionResult> ShowMeTheCode()
+        public IActionResult ShowMeTheCode()
         {
             var link = "https://github.com/rafaelcarlins/Teste_Softplan";
             return Ok(link);
